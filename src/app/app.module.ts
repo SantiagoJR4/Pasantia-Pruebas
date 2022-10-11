@@ -4,18 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http"
-import { ListarComponent } from './Datos/pages/listar/listar.component';
+import { DatosModule } from './Datos/datos.module';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,ListarComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DatosModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatosModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

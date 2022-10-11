@@ -1,1 +1,16 @@
-<p>listar works!</p>
+<div>
+    <H2>PERSONAS</H2>
+    <div *ngFor="let dato of datos; index as i">
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">Id:{{dato.id}}
+                <button (click)="borrar(dato.id,i)"><i class="bi bi-x-circle-fill"></i></button>
+            </li>
+            <li class="list-group-item ">Nombre:{{dato.nombre}}</li>
+            <li class="list-group-item ">Apellido:{{dato.apellido}}</li>
+            <li class="list-group-item ">Celular:{{dato.celular}}</li>
+            <li class="list-group-item ">Empleo:{{dato.empleo.cargo}}</li>
+            <li class="list-group-item">Salario:{{dato.empleo.salario}}</li>
+            <hr>
+        </ul> 
+    </div>
+</div>

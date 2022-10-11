@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Datos} from '../../interface/datos.interface';
 import { DatosService } from '../../Service/datos.service';
 
 @Component({
@@ -8,13 +9,18 @@ import { DatosService } from '../../Service/datos.service';
 })
 export class ListarComponent implements OnInit {
 
-  datos:any = []
+  datos:Datos[] = []
 
   constructor(private datosservice:DatosService) { }
 
   ngOnInit(): void {
     this.datosservice.obtener()
-    .subscribe((res:any)=>{console.log(res)})
+    .subscribe(res=>this.datos=res);
+  }
+
+  borrar(id:number, index:number){
+    this.datosservice.borrar(id).subscribe(res=>console.log(res));
+    this.datos.splice(index,1);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from '../../Service/datos.service';
-import { Empleo, crearPersona } from '../../interface/datos.interface';
+import { Empleo, DatosPersona } from '../../interface/datos.interface';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,7 @@ export class CrearComponent implements OnInit {
   empleos:Empleo[]=[];
   public form:FormGroup
 
-  body:crearPersona={
+  body:DatosPersona={
     nombre:'',
     apellido:'',
     celular:-1,
@@ -33,7 +33,7 @@ export class CrearComponent implements OnInit {
     this.datosService.obtenerEmpleos().subscribe(res=>this.empleos=res);
   }
 
-  crearPersona(body:crearPersona){
+  crearPersona(body:DatosPersona){
     this.datosService.crear(body).subscribe(res=>{console.log(res)})
   }
 

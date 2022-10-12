@@ -4,6 +4,8 @@
         <ul class="list-group">
             <li class="list-group-item active" aria-current="true">Id:{{dato.id}}
                 <button (click)="borrar(dato.id,i)"><i class="bi bi-x-circle-fill"></i></button>
+                <button [routerLink]="['/actualizar', dato.id]"><i class="bi bi-pencil-square"></i></button>
+                
             </li>
             <li class="list-group-item ">Nombre:{{dato.nombre}}</li>
             <li class="list-group-item ">Apellido:{{dato.apellido}}</li>

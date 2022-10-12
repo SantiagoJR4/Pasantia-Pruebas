@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="emitir()" novalidate>
+    <div class="m-4">
+        <label class="form-label">Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" required>
+    </div>
+    <div class="m-4">
+        <label class="form-label">Apellido</label>
+        <input formControlName="apellido" type="text" class="form-control" required>
+    </div>
+    <div class="m-4">
+        <label class="form-label">Celular</label>
+        <input formControlName="celular" type="number" class="form-control" required>
+    </div>
+    <div class="form-check m-4" *ngFor="let item of empleos">
+        <input [value]="item.id" formControlName="empleo" class="form-check-input" type="radio" >
+        <label class="form-check-label" for="flexRadioDefault">
+            {{item.cargo}}
+        </label>
+    </div>
+    <button [disabled]="!form.valid" type="submit" class="btn btn-primary">ENVIAR</button>
+</form>

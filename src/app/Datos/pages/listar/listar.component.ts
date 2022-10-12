@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Datos} from '../../interface/datos.interface';
+import { Datos, DatosPersona } from '../../interface/datos.interface';
 import { DatosService } from '../../Service/datos.service';
 
 @Component({
@@ -22,5 +22,4 @@ export class ListarComponent implements OnInit {
     this.datosservice.borrar(id).subscribe(res=>console.log(res));
     this.datos.splice(index,1);
   }
-
 }

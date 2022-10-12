@@ -10,7 +10,7 @@ export interface Empleo {
     cargo:   string;
     salario: string;
 }
-export interface crearPersona{
+export interface DatosPersona{
     nombre:   string;
     apellido: string;
     celular:  number;

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Datos, Empleo, crearPersona } from '../interface/datos.interface';
+import { Datos, Empleo,DatosPersona } from '../interface/datos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,13 @@ export class DatosService {
     return this.http.get<Empleo[]>(`${this.rutaApi}empleo`)
   }
 
-  crear(body:crearPersona):Observable<crearPersona>{
-    return this.http.post<crearPersona>(`${this.rutaApi}crear/persona`,body)
+  crear(body:DatosPersona):Observable<DatosPersona>{
+    return this.http.post<DatosPersona>(`${this.rutaApi}crear/persona`,body)
   }
   borrar(id:number):Observable<number>{
     return this.http.delete<number>(`${this.rutaApi}borrar/persona/${id}`)
+  }
+  actualizar(id:number, body:DatosPersona):Observable<DatosPersona>{
+    return this.http.put<DatosPersona>(`${this.rutaApi}actualizar/persona/${id}`,body);
   }
 }
